@@ -2,7 +2,6 @@ import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import LinearProgress from '@mui/material/LinearProgress';
 import Stack from '@mui/material/Stack';
 import type { SxProps } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
@@ -13,7 +12,7 @@ export interface TasksProgressProps {
   value: number;
 }
 
-export function TasksProgress({ value, sx }: TasksProgressProps): React.JSX.Element {
+export function TasksProgress({ sx }: TasksProgressProps): React.JSX.Element {
   return (
     <Card sx={sx}>
       <CardContent>
@@ -31,10 +30,6 @@ export function TasksProgress({ value, sx }: TasksProgressProps): React.JSX.Elem
           </Stack>
           <Stack sx={{ alignItems: 'flex-start' }} direction="column" spacing={2}>
             <Stack sx={{ alignItems: 'flex-start' }} direction="column" spacing={0.5}>
-              {/* <TrendIcon color={trendColor} fontSize="var(--icon-fontSize-md)" />
-                <Typography color={trendColor} variant="body2">
-                  {diff}%
-                </Typography> */}
             </Stack>
             <Typography color="text.secondary" variant="caption">
               10 Dimensões
@@ -43,9 +38,6 @@ export function TasksProgress({ value, sx }: TasksProgressProps): React.JSX.Elem
               40 Indicadores
             </Typography>
           </Stack>
-          {/* <div>
-            <LinearProgress value={value} variant="determinate" />
-          </div> */}
         </Stack>
       </CardContent>
     </Card>

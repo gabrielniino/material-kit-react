@@ -4,7 +4,6 @@ import * as React from 'react';
 import { useState } from 'react';
 import Grid from '@mui/material/Unstable_Grid2';
 
-import { config } from '@/config';
 import { TasksProgress } from '@/components/dashboard/overview/tasks-progress';
 import { TotalCustomers } from '@/components/dashboard/overview/total-customers';
 import { TotalProfit } from '@/components/dashboard/overview/total-profit';
@@ -50,19 +49,22 @@ export default function DynamicDashboard(): React.JSX.Element {
         },
     };
 
+    const handleItemClick = (item: 'csc' | 'customers' | 'tasks' | 'profit') => {
+        setSelectedItem(item);
+    };
+
     return (
         <Grid container spacing={3}>
-            <Grid lg={3} sm={6} xs={12} onClick={() => setSelectedItem('csc')} sx={{ cursor: 'pointer' }}>
-
+            <Grid lg={3} sm={6} xs={12} onClick={() => { handleItemClick('csc'); }} sx={{ cursor: 'pointer' }}>
                 <CscOrganization diff={12} trend="up" sx={{ height: '100%' }} value="$24k" />
             </Grid>
-            <Grid lg={3} sm={6} xs={12} onClick={() => setSelectedItem('customers')} sx={{ cursor: 'pointer' }}>
+            <Grid lg={3} sm={6} xs={12} onClick={() => { handleItemClick('customers'); }} sx={{ cursor: 'pointer' }}>
                 <TotalCustomers diff={16} trend="down" sx={{ height: '100%' }} value="1.6k" />
             </Grid>
-            <Grid lg={3} sm={6} xs={12} onClick={() => setSelectedItem('tasks')} sx={{ cursor: 'pointer' }}>
+            <Grid lg={3} sm={6} xs={12} onClick={() => { handleItemClick('tasks'); }} sx={{ cursor: 'pointer' }}>
                 <TasksProgress sx={{ height: '100%' }} value={75.5} />
             </Grid>
-            <Grid lg={3} sm={6} xs={12} onClick={() => setSelectedItem('profit')} sx={{ cursor: 'pointer' }}>
+            <Grid lg={3} sm={6} xs={12} onClick={() => { handleItemClick('profit'); }} sx={{ cursor: 'pointer' }}>
                 <TotalProfit sx={{ height: '100%' }} value="$15k" />
             </Grid>
 

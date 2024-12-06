@@ -5,8 +5,6 @@ import CardContent from '@mui/material/CardContent';
 import Stack from '@mui/material/Stack';
 import type { SxProps } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
-import { ArrowDown as ArrowDownIcon } from '@phosphor-icons/react/dist/ssr/ArrowDown';
-import { ArrowUp as ArrowUpIcon } from '@phosphor-icons/react/dist/ssr/ArrowUp';
 import { CurrencyDollar as CurrencyDollarIcon } from '@phosphor-icons/react/dist/ssr/CurrencyDollar';
 
 export interface BudgetProps {
@@ -16,9 +14,7 @@ export interface BudgetProps {
   value: string;
 }
 
-export function CscOrganization({ diff, trend, sx, value }: BudgetProps): React.JSX.Element {
-  const TrendIcon = trend === 'up' ? ArrowUpIcon : ArrowDownIcon;
-  const trendColor = trend === 'up' ? 'var(--mui-palette-success-main)' : 'var(--mui-palette-error-main)';
+export function CscOrganization({ diff, sx }: BudgetProps): React.JSX.Element {
 
   return (
     <Card sx={sx}>
@@ -29,7 +25,6 @@ export function CscOrganization({ diff, trend, sx, value }: BudgetProps): React.
               <Typography color="text.secondary" variant="h5">
                 CSC
               </Typography>
-              {/* <Typography variant="h4">{value}</Typography> */}
             </Stack>
             <Avatar sx={{ backgroundColor: 'var(--mui-palette-primary-main)', height: '56px', width: '56px' }}>
               <CurrencyDollarIcon fontSize="var(--icon-fontSize-lg)" />
@@ -38,10 +33,6 @@ export function CscOrganization({ diff, trend, sx, value }: BudgetProps): React.
           {diff ? (
             <Stack sx={{ alignItems: 'flex-start' }} direction="column" spacing={2}>
               <Stack sx={{ alignItems: 'flex-start' }} direction="column" spacing={0.5}>
-                {/* <TrendIcon color={trendColor} fontSize="var(--icon-fontSize-md)" />
-                <Typography color={trendColor} variant="body2">
-                  {diff}%
-                </Typography> */}
               </Stack>
               <Typography color="text.secondary" variant="caption">
                 64 Dimensões

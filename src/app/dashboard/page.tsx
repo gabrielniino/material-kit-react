@@ -1,3 +1,4 @@
+import * as React from 'react';
 import DynamicDashboard from "@/components/dashboard/overview/dynamic-dashboard";
 
 export const metadata = {

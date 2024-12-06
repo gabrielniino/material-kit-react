@@ -12,7 +12,7 @@ export interface TotalProfitProps {
   value: string;
 }
 
-export function TotalProfit({ value, sx }: TotalProfitProps): React.JSX.Element {
+export function TotalProfit({ sx }: TotalProfitProps): React.JSX.Element {
   return (
     <Card sx={sx}>
       <CardContent>
@@ -30,10 +30,6 @@ export function TotalProfit({ value, sx }: TotalProfitProps): React.JSX.Element 
           </Stack>
           <Stack sx={{ alignItems: 'flex-start' }} direction="column" spacing={2}>
             <Stack sx={{ alignItems: 'flex-start' }} direction="column" spacing={0.5}>
-              {/* <TrendIcon color={trendColor} fontSize="var(--icon-fontSize-md)" />
-                <Typography color={trendColor} variant="body2">
-                  {diff}%
-                </Typography> */}
             </Stack>
             <Typography color="text.secondary" variant="caption">
               6 Dimensões
