@@ -20,7 +20,7 @@ export function TotalProfit({ sx }: TotalProfitProps): React.JSX.Element {
           <Stack direction="row" sx={{ alignItems: 'flex-start', justifyContent: 'space-between' }} spacing={3}>
             <Stack spacing={1}>
               <Typography color="text.secondary" gutterBottom variant="h5">
-                Bright Cities
+                ICF NY
               </Typography>
               {/* <Typography variant="h4">{value}%</Typography> */}
             </Stack>

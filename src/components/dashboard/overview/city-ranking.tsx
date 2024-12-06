@@ -79,7 +79,7 @@ function useChartOptions(): ApexOptions {
         },
         yaxis: {
             labels: {
-                formatter: (value) => (value > 0 ? `${value} registros` : `${value}`),
+                formatter: (value) => (value > 0 ? `${value} %` : `${value}`),
                 style: { colors: theme.palette.text.secondary },
             },
         },

@@ -10,78 +10,80 @@ import { TotalProfit } from '@/components/dashboard/overview/total-profit';
 import { CityRanking } from '@/components/dashboard/overview/city-ranking';
 import { SectorRanking } from '@/components/dashboard/overview/sector-ranking';
 import { CscOrganization } from '@/components/dashboard/overview/csc-organization';
+import SessionsChart from './session-chart';
 
 export default function DynamicDashboard(): React.JSX.Element {
-    const [selectedItem, setSelectedItem] = useState<'csc' | 'customers' | 'tasks' | 'profit'>('csc');
+  const [selectedItem, setSelectedItem] = useState<'csc' | 'customers' | 'tasks' | 'profit'>('csc');
 
-    const data = {
-        csc: {
-            cityRanking: [
-                { name: 'CSC Dados', data: [100, 90, 80, 70, 60, 50, 40, 30] },
-            ],
-            sectorRanking: [
-                { name: 'CSC Pontuação', data: [50, 60, 70, 80, 90, 100] },
-            ],
-        },
-        customers: {
-            cityRanking: [
-                { name: 'Clientes Dados', data: [80, 70, 60, 50, 40, 30, 20, 10] },
-            ],
-            sectorRanking: [
-                { name: 'Clientes Pontuação', data: [40, 50, 60, 70, 80, 90] },
-            ],
-        },
-        tasks: {
-            cityRanking: [
-                { name: 'Tarefas Dados', data: [70, 60, 50, 40, 30, 20, 10, 5] },
-            ],
-            sectorRanking: [
-                { name: 'Tarefas Pontuação', data: [30, 40, 50, 60, 70, 80] },
-            ],
-        },
-        profit: {
-            cityRanking: [
-                { name: 'Lucros Dados', data: [60, 50, 40, 30, 20, 10, 5, 1] },
-            ],
-            sectorRanking: [
-                { name: 'Lucros Pontuação', data: [20, 30, 40, 50, 60, 70] },
-            ],
-        },
-    };
+  const data = {
+    csc: {
+      cityRanking: [
+        { name: 'CSC Dados', data: [100, 90, 80, 70, 60, 50, 40, 30] },
+      ],
+      sectorRanking: [
+        { name: 'CSC Pontuação', data: [50, 60, 70, 80, 90, 100] },
+      ],
+    },
+    customers: {
+      cityRanking: [
+        { name: 'Clientes Dados', data: [80, 70, 60, 50, 40, 30, 20, 10] },
+      ],
+      sectorRanking: [
+        { name: 'Clientes Pontuação', data: [40, 50, 60, 70, 80, 90] },
+      ],
+    },
+    tasks: {
+      cityRanking: [
+        { name: 'Tarefas Dados', data: [70, 60, 50, 40, 30, 20, 10, 5] },
+      ],
+      sectorRanking: [
+        { name: 'Tarefas Pontuação', data: [30, 40, 50, 60, 70, 80] },
+      ],
+    },
+    profit: {
+      cityRanking: [
+        { name: 'Lucros Dados', data: [60, 50, 40, 30, 20, 10, 5, 1] },
+      ],
+      sectorRanking: [
+        { name: 'Lucros Pontuação', data: [20, 30, 40, 50, 60, 70] },
+      ],
+    },
+  };
 
-    const handleItemClick = (item: 'csc' | 'customers' | 'tasks' | 'profit') => {
-        setSelectedItem(item);
-    };
+  const handleItemClick = (item: 'csc' | 'customers' | 'tasks' | 'profit') => {
+    setSelectedItem(item);
+  };
 
-    return (
-        <Grid container spacing={3}>
-            <Grid lg={3} sm={6} xs={12} onClick={() => { handleItemClick('csc'); }} sx={{ cursor: 'pointer' }}>
-                <CscOrganization diff={12} trend="up" sx={{ height: '100%' }} value="$24k" />
-            </Grid>
-            <Grid lg={3} sm={6} xs={12} onClick={() => { handleItemClick('customers'); }} sx={{ cursor: 'pointer' }}>
-                <TotalCustomers diff={16} trend="down" sx={{ height: '100%' }} value="1.6k" />
-            </Grid>
-            <Grid lg={3} sm={6} xs={12} onClick={() => { handleItemClick('tasks'); }} sx={{ cursor: 'pointer' }}>
-                <TasksProgress sx={{ height: '100%' }} value={75.5} />
-            </Grid>
-            <Grid lg={3} sm={6} xs={12} onClick={() => { handleItemClick('profit'); }} sx={{ cursor: 'pointer' }}>
-                <TotalProfit sx={{ height: '100%' }} value="$15k" />
-            </Grid>
+  return (
+    <Grid container spacing={3}>
+      <Grid lg={3} sm={6} xs={12} onClick={() => { handleItemClick('csc'); }} sx={{ cursor: 'pointer' }}>
+        <CscOrganization diff={12} trend="up" sx={{ height: '100%' }} value="$24k" />
+      </Grid>
+      <Grid lg={3} sm={6} xs={12} onClick={() => { handleItemClick('customers'); }} sx={{ cursor: 'pointer' }}>
+        <TotalCustomers diff={16} trend="down" sx={{ height: '100%' }} value="1.6k" />
+      </Grid>
+      <Grid lg={3} sm={6} xs={12} onClick={() => { handleItemClick('tasks'); }} sx={{ cursor: 'pointer' }}>
+        <TasksProgress sx={{ height: '100%' }} value={75.5} />
+      </Grid>
+      <Grid lg={3} sm={6} xs={12} onClick={() => { handleItemClick('profit'); }} sx={{ cursor: 'pointer' }}>
+        <TotalProfit sx={{ height: '100%' }} value="$15k" />
+      </Grid>
 
-            <Grid lg={8} xs={12}>
-                <CityRanking
-                    chartSeries={data[selectedItem].cityRanking}
-                    sx={{ height: '100%' }}
-                />
-            </Grid>
-            <Grid lg={4} md={6} xs={12}>
-                <SectorRanking
-                    chartSeries={data[selectedItem].sectorRanking}
-                    sx={{ height: '100%' }}
-                />
-            </Grid>
-            {/* <Grid lg={4} md={6} xs={12}>
-        <LatestProducts
+      <Grid lg={8} xs={12}>
+        <CityRanking
+          chartSeries={data[selectedItem].cityRanking}
+          sx={{ height: '100%' }}
+        />
+      </Grid>
+      <Grid lg={4} md={6} xs={12}>
+        <SectorRanking
+          chartSeries={data[selectedItem].sectorRanking}
+          sx={{ height: '100%' }}
+        />
+      </Grid>
+      <Grid lg={12} md={6} xs={12}>
+        <SessionsChart />
+        {/* <LatestProducts
           products={[
             {
               id: 'PRD-005',
@@ -164,8 +166,8 @@ export default function DynamicDashboard(): React.JSX.Element {
             },
           ]}
           sx={{ height: '100%' }}
-        />
-      </Grid> */}
-        </Grid>
-    );
+        /> */}
+      </Grid>
+    </Grid>
+  );
 }
