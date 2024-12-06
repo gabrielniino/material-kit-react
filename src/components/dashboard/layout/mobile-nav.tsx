@@ -109,7 +109,7 @@ export function MobileNav({ open, onClose }: MobileNavProps): React.JSX.Element 
           component="a"
           endIcon={<ArrowSquareUpRightIcon fontSize="var(--icon-fontSize-md)" />}
           fullWidth
-          href="https://material-kit-pro-react.devias.io/"
+          href="https://smart-cities-dashboard.vercel.app/dashboard"
           sx={{ mt: 2 }}
           target="_blank"
           variant="contained"
@@ -150,11 +150,11 @@ function NavItem({ disabled, external, href, icon, matcher, pathname, title }: N
       <Box
         {...(href
           ? {
-              component: external ? 'a' : RouterLink,
-              href,
-              target: external ? '_blank' : undefined,
-              rel: external ? 'noreferrer' : undefined,
-            }
+            component: external ? 'a' : RouterLink,
+            href,
+            target: external ? '_blank' : undefined,
+            rel: external ? 'noreferrer' : undefined,
+          }
           : { role: 'button' })}
         sx={{
           alignItems: 'center',
