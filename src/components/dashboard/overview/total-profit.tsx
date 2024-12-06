@@ -16,16 +16,35 @@ export function TotalProfit({ value, sx }: TotalProfitProps): React.JSX.Element 
   return (
     <Card sx={sx}>
       <CardContent>
-        <Stack direction="row" sx={{ alignItems: 'flex-start', justifyContent: 'space-between' }} spacing={3}>
-          <Stack spacing={1}>
-            <Typography color="text.secondary" variant="overline">
-              Total Profit
-            </Typography>
-            <Typography variant="h4">{value}</Typography>
+        <Stack spacing={2}>
+          <Stack direction="row" sx={{ alignItems: 'flex-start', justifyContent: 'space-between' }} spacing={3}>
+            <Stack spacing={1}>
+              <Typography color="text.secondary" gutterBottom variant="h5">
+                Bright Cities
+              </Typography>
+              {/* <Typography variant="h4">{value}%</Typography> */}
+            </Stack>
+            <Avatar sx={{ backgroundColor: 'var(--mui-palette-primary-main)', height: '56px', width: '56px' }}>
+              <ReceiptIcon fontSize="var(--icon-fontSize-lg)" />
+            </Avatar>
           </Stack>
-          <Avatar sx={{ backgroundColor: 'var(--mui-palette-primary-main)', height: '56px', width: '56px' }}>
-            <ReceiptIcon fontSize="var(--icon-fontSize-lg)" />
-          </Avatar>
+          <Stack sx={{ alignItems: 'flex-start' }} direction="column" spacing={2}>
+            <Stack sx={{ alignItems: 'flex-start' }} direction="column" spacing={0.5}>
+              {/* <TrendIcon color={trendColor} fontSize="var(--icon-fontSize-md)" />
+                <Typography color={trendColor} variant="body2">
+                  {diff}%
+                </Typography> */}
+            </Stack>
+            <Typography color="text.secondary" variant="caption">
+              6 Dimensões
+            </Typography>
+            <Typography color="text.secondary" variant="caption">
+              + Indicadores
+            </Typography>
+          </Stack>
+          {/* <div>
+            <LinearProgress value={value} variant="determinate" />
+          </div> */}
         </Stack>
       </CardContent>
     </Card>

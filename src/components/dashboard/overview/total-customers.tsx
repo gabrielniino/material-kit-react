@@ -26,25 +26,28 @@ export function TotalCustomers({ diff, trend, sx, value }: TotalCustomersProps):
         <Stack spacing={2}>
           <Stack direction="row" sx={{ alignItems: 'flex-start', justifyContent: 'space-between' }} spacing={3}>
             <Stack spacing={1}>
-              <Typography color="text.secondary" variant="overline">
-                Total Customers
+              <Typography color="text.secondary" variant="h5">
+                IESE
               </Typography>
-              <Typography variant="h4">{value}</Typography>
+              {/* <Typography variant="h4">{value}</Typography> */}
             </Stack>
             <Avatar sx={{ backgroundColor: 'var(--mui-palette-success-main)', height: '56px', width: '56px' }}>
               <UsersIcon fontSize="var(--icon-fontSize-lg)" />
             </Avatar>
           </Stack>
           {diff ? (
-            <Stack sx={{ alignItems: 'center' }} direction="row" spacing={2}>
-              <Stack sx={{ alignItems: 'center' }} direction="row" spacing={0.5}>
-                <TrendIcon color={trendColor} fontSize="var(--icon-fontSize-md)" />
+            <Stack sx={{ alignItems: 'flex-start' }} direction="column" spacing={2}>
+              <Stack sx={{ alignItems: 'flex-start' }} direction="column" spacing={0.5}>
+                {/* <TrendIcon color={trendColor} fontSize="var(--icon-fontSize-md)" />
                 <Typography color={trendColor} variant="body2">
                   {diff}%
-                </Typography>
+                </Typography> */}
               </Stack>
               <Typography color="text.secondary" variant="caption">
-                Since last month
+                9 Dimensões
+              </Typography>
+              <Typography color="text.secondary" variant="caption">
+                105 Indicadores
               </Typography>
             </Stack>
           ) : null}
